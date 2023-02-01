@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    table,th,td{
+        text-align: center;
+        padding: 20px;
+        font-size: 28px;
+    }
+    .table{
+        margin-left: 25%;
+        margin-top: 70px;
+    }
+    .ad_btn{
+        border:1px solid;
+        background-color: blue;
+        padding:8px;
+        color:black;
+        text-decoration: none;
+    }
+    .ed_btn{
+        border:1px solid;
+        background-color:green;
+        padding:8px;
+        color:black;
+        text-decoration: none;
+    }
+    .del_btn{
+        border:1px solid;
+        background-color:red;
+        padding:8px;
+        color:black;
+        text-decoration: none;
+    }
+</style>
+</head>
+<body>
+    <h1 style="text-align:center">Flask Crud Operation-by mongodb</h1>
+    <hr>
+    
+        <a href="{{url_for('add')}}" class="ad_btn">ADD USER</a>
+<section class="table">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Language</th>
+            <th>Skill</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.language}}</td>
+            <td>{{i.skill}}</td>
+            <td><a href="{{url_for('edit',id=i.id)}}" class="ed_btn">EDIT</a></td>
+            <td><a href="{{url_for('delete',id=i.id)}}"class="del_btn">DELETE</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</section>
+    
+</body>
+</html>
